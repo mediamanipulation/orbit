@@ -48,16 +48,18 @@ const AuthProvider = ({ children }) => {
     history.push('/login')
   }
 
-const isAuthenticated = () => {
-  if(!authState.token || !authState.expiresAt ){
-    return false;
-  }
-  return new Date().getItem() / 1000 < authState.expiresAt 
-}
+  const isAuthenticated = () => {
+    if (!authState.token || !authState.expiresAt) {
+      return false;
+    }
+    return (
+      new Date().getTime() / 1000 < authState.expiresAt
+    );
+  };
 
-const isAdmin = () => {
-  return authState.userInfo.role === 'admin'
-}
+  const isAdmin = () => {
+    return authState.userInfo.role === 'admin';
+  };
 
   return (
     <Provider
