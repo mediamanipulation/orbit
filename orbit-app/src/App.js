@@ -5,6 +5,7 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
+import axios from 'axios';
 import './App.css';
 
 import {
